@@ -2,10 +2,11 @@
 #include<stdlib.h>
 #include<sys/wait.h>
 #include<string.h>
+#include<unistd.h>
 
 void read_command(char cmd[], char *par[]){
     char line[1024];
-    int count = 0; i = 0, j = 0;
+    int count = 0, i= 0, j= 0;
     char *array[100], *pch;
 
     //read one line
@@ -15,7 +16,7 @@ void read_command(char cmd[], char *par[]){
         if ( c == '\n') break;
     }
     if (count == 1) return;
-    pch strtok(line, " \n");
+    pch = strtok(line, " \n");
 
     //parse the line into words
     while( pch != NULL){
@@ -60,4 +61,5 @@ int mian()
         break;    
     }
     
+    return 0;
 }
